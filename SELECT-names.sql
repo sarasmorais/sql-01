@@ -33,4 +33,6 @@ SELECT name
   FROM world
  WHERE name LIKE capital
 
-
+SELECT name 
+  FROM world
+ WHERE capital LIKE concat(name, ' City')
