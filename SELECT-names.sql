@@ -81,6 +81,9 @@ SELECT name FROM world
 SELECT name FROM world
  WHERE name LIKE '____'
 
+  SELECT name FROM world
+  WHERE LENGTH(name)= 4
+
 -- 11.
 -- The capital of Luxembourg is Luxembourg. Show all the countries where the capital is the same as the name of the country
 
@@ -114,6 +117,14 @@ SELECT capital, name
   FROM world
  WHERE capital LIKE concat(name, '%') AND capital <> name
 
+SELECT capital, name 
+  FROM world
+ WHERE capital LIKE concat(name, '%') AND capital != name
+
+SELECT capital, name 
+  FROM world
+WHERE capital LIKE concat(name, '%') AND LEGHT(capital) > LEGTH(name)
+
 -- 15.
 -- The capital of Monaco is Monaco-Ville: this is the name Monaco and the extension is -Ville.
 
@@ -122,5 +133,9 @@ SELECT capital, name
 -- You can use the SQL function REPLACE.
 
 SELECT name, REPLACE(capital, name, '')
+  FROM world
+ WHERE capital LIKE concat(name, '%') AND capital <> name
+
+SELECT name, SUBSTRING(capital, LENGTH(name)+1)
   FROM world
  WHERE capital LIKE concat(name, '%') AND capital <> name
